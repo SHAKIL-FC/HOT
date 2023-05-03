@@ -1,6 +1,6 @@
 #-------------------------------------------------------------
 #Don't Forget To Follow My Github &
-#Sent Star This Repositories 🙂
+#Sent Star This Repositories
 #-------------------------------------------------------------
 #10K-Gift-Test-Coding
 #!/usr/bin/python3
