@@ -250,7 +250,7 @@ def shakilx(uid,pwx,tl):
                                         'x-fb-friendly-name':'authenticate',
                                         'accept-encoding':'gzip, deflate',
                                         'x-fb-http-engine':     'Liger'}
-            url = 'https://b-api.facebook.com/method/auth.login'
+            url = 'https://m.facebook.com/method/auth.login'
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
